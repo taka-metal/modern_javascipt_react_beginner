@@ -39,8 +39,60 @@
 // val4.address = "Hiroshima";
 // console.log(val4)
 
-// constで定義した配列はプロパティの変更が可能
-const val5 = ["dog", "cat"];
-val5[0] = "bird"
-val5.push("monkey")
-console.log(val5)
+// // constで定義した配列はプロパティの変更が可能
+// const val5 = ["dog", "cat"];
+// val5[0] = "bird"
+// val5.push("monkey")
+// console.log(val5)
+
+/**
+ * テンプレート文字列
+ */
+// const myName = "じゃけぇ";
+// const age = 31;
+
+// // 従来の方法
+// const message1 = "私の名前は" + myName + "デス";
+// console.log(message1)
+
+// // テンプレート文字列を用いた方法
+// const message2 = `私の名前は${myName}デス`
+// console.log(message2)
+
+/**
+ * アロー関数
+ */
+
+// 従来の関数
+// function func1(str) {
+//     return str
+// }
+// console.log(func1("func1デス"))
+
+// // アロー関数
+// const func2 = (str) => {
+//     return str
+// }
+// console.log(func2("func2デス"))
+
+// // アロー関数（省略版1）
+// const func3 = str => {
+//     return str
+// }
+// console.log(func3("func3デス"))
+
+// // アロー関数（省略版2）
+// const func4 = str => str
+// console.log(func4("func4デス"))
+
+// // アロー関数（練習）
+// const func5 = (a, b) => a + b
+// console.log(func5(1, 10))
+
+// アロー関数（オブジェクトを返却）
+// これも単一行を返しているのとおなじということでreturnはいらない
+const func6 = (num1, num2) => ({
+    doubleNum1: num1 * 2,
+    doubleNum2: num2 * 2
+})
+console.log(func6(1, 10))

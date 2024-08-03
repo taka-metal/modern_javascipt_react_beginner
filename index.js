@@ -89,10 +89,47 @@
 // const func5 = (a, b) => a + b
 // console.log(func5(1, 10))
 
-// アロー関数（オブジェクトを返却）
-// これも単一行を返しているのとおなじということでreturnはいらない
-const func6 = (num1, num2) => ({
-    doubleNum1: num1 * 2,
-    doubleNum2: num2 * 2
-})
-console.log(func6(1, 10))
+// // アロー関数（オブジェクトを返却）
+// // これも単一行を返しているのとおなじということでreturnはいらない
+// const func6 = (num1, num2) => ({
+//     doubleNum1: num1 * 2,
+//     doubleNum2: num2 * 2
+// })
+// console.log(func6(1, 10))
+
+/**
+ * 分割代入
+ */
+// const myProfile = {
+//     name: "じぇけぇ",
+//     age: 31
+// }
+// const message1 = `私の名前は${myProfile.name}デス。年齢は${myProfile.age}デス。`
+// console.log(message1)
+
+// // オブジェクトの分割代入
+// const { name, age } = myProfile;
+// const message2 = `私の名前は${name}デス。年齢は${age}デス。`
+// console.log(message1)
+
+// //　配列の分割代入
+// const myProfile = ["じゃけぇ", 31]
+
+// // 分割代入する際に任意の変数名を設定する(内部では順番を参照して代入している)！
+// const [name, age] = myProfile
+// const message3 = `私の名前は${name}デス。年齢は${age}デス。`
+// console.log(message3)
+
+// デフォルト値(関数の引数として使う)
+const sayHello = (name = "ゲスト") => console.log(`こんにちは、${name}さん`)
+//                    ^^^^^^^^デフォルト値
+sayHello()
+sayHello("じゃけぇ")
+
+//　【しっかり覚えておく！！】デフォルト値(配列の分割代入として使う)
+const myProfile = {
+    age: 31
+}
+const { age, name = "ゲスト"} = myProfile
+console.log(age)
+console.log(name)

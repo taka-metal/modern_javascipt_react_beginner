@@ -126,7 +126,7 @@ const sayHello = (name = "ゲスト") => console.log(`こんにちは、${name}�
 sayHello()
 sayHello("じゃけぇ")
 
-//　【しっかり覚えておく！！】デフォルト値(配列の分割代入として使う)
+//　【しっかり覚えておく！！】デフォルト値(オブジェクトの分割代入として使う)
 const myProfile = {
     age: 31
 }

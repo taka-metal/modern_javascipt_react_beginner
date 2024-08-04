@@ -121,15 +121,35 @@
 // console.log(message3)
 
 // デフォルト値(関数の引数として使う)
-const sayHello = (name = "ゲスト") => console.log(`こんにちは、${name}さん`)
-//                    ^^^^^^^^デフォルト値
-sayHello()
-sayHello("じゃけぇ")
+// const sayHello = (name = "ゲスト") => console.log(`こんにちは、${name}さん`)
+// //                    ^^^^^^^^デフォルト値
+// sayHello()
+// sayHello("じゃけぇ")
 
-//　【しっかり覚えておく！！】デフォルト値(オブジェクトの分割代入として使う)
+// //　【しっかり覚えておく！！】デフォルト値(オブジェクトの分割代入として使う)
+// const myProfile = {
+//     age: 31
+// }
+// const { age, name = "ゲスト"} = myProfile
+// console.log(age)
+// console.log(name)
+
+/**
+ * オブジェクトの省略記法
+ */
+const name = "じゃけぇ"
+const age = 31
+
 const myProfile = {
-    age: 31
+    name: name,
+    age : age
 }
-const { age, name = "ゲスト"} = myProfile
-console.log(age)
-console.log(name)
+console.log(myProfile)
+
+// 上記のような場合は省略できるよ！
+const myProfile2 = {
+    name,
+    age
+}
+console.log(myProfile)
+

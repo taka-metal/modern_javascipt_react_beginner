@@ -137,19 +137,55 @@
 /**
  * オブジェクトの省略記法
  */
-const name = "じゃけぇ"
-const age = 31
+// const name = "じゃけぇ"
+// const age = 31
 
-const myProfile = {
-    name: name,
-    age : age
-}
-console.log(myProfile)
+// const myProfile = {
+//     name: name,
+//     age : age
+// }
+// console.log(myProfile)
 
-// 上記のような場合は省略できるよ！
-const myProfile2 = {
-    name,
-    age
-}
-console.log(myProfile)
+// // 上記のような場合は省略できるよ！
+// const myProfile2 = {
+//     name,
+//     age
+// }
+// console.log(myProfile)
 
+/**
+ * スプレッド構文 ...
+ * 基本的に配列の展開がメイン！！！
+ */
+
+// // 配列の展開
+// const arr1 = [1, 2]
+// // console.log(arr1)
+// // console.log(...arr1) // 配列の中身がそのまま出力されている（展開）
+
+// // 
+// const sumFunc = (num1, num2) => console.log(num1 + num2)
+// sumFunc(arr1[0], arr1[1])
+// sumFunc(...arr1)
+
+// まとめる
+// const arr2 = [1, 2, 3, 4, 5]
+// const [num1, num2, ...num3] = arr2
+// console.log(num1, num2, num3)
+
+// 配列のコピー、結合
+const arr1 = [10, 20]
+const arr2 = [30, 40]
+
+const arr6 = [...arr1]
+console.log(arr6)
+
+const arr7 = [...arr1, ...arr2]
+console.log(arr7)
+
+// なんでこれはダメ？？
+// 同じ参照を引き継いでしまうから！！
+const arr8 = arr1
+arr8[0] = 100 // arr8だけ修正したいなあ
+console.log(arr8, arr1) // どっちも変わっちゃう！！
+// 配列とかオブジェクトは単純に=と書いてしまうと参照を引き継いでしまうので注意

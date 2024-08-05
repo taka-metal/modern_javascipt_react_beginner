@@ -174,18 +174,63 @@
 // console.log(num1, num2, num3)
 
 // 配列のコピー、結合
-const arr1 = [10, 20]
-const arr2 = [30, 40]
+// const arr1 = [10, 20]
+// const arr2 = [30, 40]
 
-const arr6 = [...arr1]
-console.log(arr6)
+// const arr6 = [...arr1]
+// console.log(arr6)
 
-const arr7 = [...arr1, ...arr2]
-console.log(arr7)
+// const arr7 = [...arr1, ...arr2]
+// console.log(arr7)
 
-// なんでこれはダメ？？
-// 同じ参照を引き継いでしまうから！！
-const arr8 = arr1
-arr8[0] = 100 // arr8だけ修正したいなあ
-console.log(arr8, arr1) // どっちも変わっちゃう！！
-// 配列とかオブジェクトは単純に=と書いてしまうと参照を引き継いでしまうので注意
+// // なんでこれはダメ？？
+// // 同じ参照を引き継いでしまうから！！
+// const arr8 = arr1
+// arr8[0] = 100 // arr8だけ修正したいなあ
+// console.log(arr8, arr1) // どっちも変わっちゃう！！
+// // 配列とかオブジェクトは単純に=と書いてしまうと参照を引き継いでしまうので注意
+
+/**
+ * mapやfilterを使った配列の処理
+ */
+
+// const nameArr = ["田中", "佐藤", "鈴木"]
+// // // ループの基本
+// // for (let index = 0; index < nameArr.length; index++) {
+// //     console.log(nameArr[index])    
+// // }
+
+// const nameArr2 = nameArr.map((name) => {
+//     return name
+// })
+// console.log(nameArr2)
+
+// 2番目の要素はインデックス番号を表す
+// const nameArr3 = nameArr.map((name, index) => {
+//     return `${index+1}番目は${name}デス`
+// })
+// console.log(nameArr3)
+
+// const numArr = [1, 2, 3, 4, 5]
+// const newNumArr = numArr.filter((num) => {
+//     return num % 2 === 1
+// })
+// console.log(newNumArr)
+
+// 演習：鈴木以外はさん付けにする
+const nameArr = ["田中", "佐藤", "鈴木"]
+// const myName = "鈴木"
+// const nameArrSan = nameArr.filter((name) => {
+//     return name != myName
+// }).map((name) => `${name}さん`) 
+// console.log([...nameArrSan, myName])
+
+// 模範解答
+const nameArrSan = nameArr.map((name) => {
+    if (name === "鈴木") {
+        return name
+    } else {
+        return `${name}さん`
+    }
+})
+console.log(nameArrSan)

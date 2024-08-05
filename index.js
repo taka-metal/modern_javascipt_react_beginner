@@ -225,12 +225,31 @@ const nameArr = ["田中", "佐藤", "鈴木"]
 // }).map((name) => `${name}さん`) 
 // console.log([...nameArrSan, myName])
 
-// 模範解答
-const nameArrSan = nameArr.map((name) => {
-    if (name === "鈴木") {
-        return name
-    } else {
-        return `${name}さん`
-    }
-})
-console.log(nameArrSan)
+// // 模範解答
+// const nameArrSan = nameArr.map((name) => {
+//     if (name === "鈴木") {
+//         return name
+//     } else {
+//         return `${name}さん`
+//     }
+// })
+// console.log(nameArrSan)
+
+/**
+ * 三項演算子
+*/
+// ある条件 ? 条件がtrueの時 : 条件がfalseの時
+const val1 = 1 > 2 ? "trueデス": "falseデス"
+console.log(val1)
+
+// よくある使い方
+const num = "1300"
+const formattedNum = typeof num === "number" ? num.toLocaleString() : "数値を入力してください"
+console.log(formattedNum)
+// TypeScriptの場合型付けするため、このケースはあまりなさそう
+
+const checkSum = (num1, num2) => {
+    return num1 + num2 > 100 ? "100を超えています" : "許容範囲内です"
+}
+console.log(checkSum(50, 60))
+console.log(checkSum(50, 40))

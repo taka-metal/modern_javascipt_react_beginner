@@ -238,18 +238,57 @@ const nameArr = ["田中", "佐藤", "鈴木"]
 /**
  * 三項演算子
 */
-// ある条件 ? 条件がtrueの時 : 条件がfalseの時
-const val1 = 1 > 2 ? "trueデス": "falseデス"
-console.log(val1)
+// // ある条件 ? 条件がtrueの時 : 条件がfalseの時
+// const val1 = 1 > 2 ? "trueデス": "falseデス"
+// console.log(val1)
 
-// よくある使い方
-const num = "1300"
-const formattedNum = typeof num === "number" ? num.toLocaleString() : "数値を入力してください"
-console.log(formattedNum)
-// TypeScriptの場合型付けするため、このケースはあまりなさそう
+// // よくある使い方
+// const num = "1300"
+// const formattedNum = typeof num === "number" ? num.toLocaleString() : "数値を入力してください"
+// console.log(formattedNum)
+// // TypeScriptの場合型付けするため、このケースはあまりなさそう
 
-const checkSum = (num1, num2) => {
-    return num1 + num2 > 100 ? "100を超えています" : "許容範囲内です"
+// const checkSum = (num1, num2) => {
+//     return num1 + num2 > 100 ? "100を超えています" : "許容範囲内です"
+// }
+// console.log(checkSum(50, 60))
+// console.log(checkSum(50, 40))
+
+/**
+ * 論理演算子の本当の意味を知ろう && ||
+ */
+// truthy, falsyについて
+// 暗黙的にtruth判定、false判定されるもの
+// falsy以外はtruthyになると覚える
+
+// 下記の例はよく見る！！！
+// const val = " "; // スペースはtruthy
+// const val = NaN;
+// if (val) {
+//     console.log("valはtruthyデス")
+// } else {
+//     console.log("valはfalsyデス")
+// }
+
+/**
+ * 短絡評価（結構使うよ）
+ */
+// 基本
+const flag1 = true
+const flag2 = true
+
+if (flag1 || flag2) {
+    console.log("1か2はtrueになります")
+} else {
+    console.log("1か2はfalseになります")
 }
-console.log(checkSum(50, 60))
-console.log(checkSum(50, 40))
+// 重要 || 左側がtruthyの時にその時点で返却する（短絡評価）
+const num = null
+const fee= num || "金額未設定です" // !?!?!?!?!
+console.log(fee)
+
+// 重要 $$ 左側がfalthyの時にその時点で返却する（短絡評価）
+const num2 = null
+const fee2= num && "金額未設定です" // !?!?!?!?!
+console.log(fee)
+

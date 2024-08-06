@@ -23,7 +23,21 @@ const onClickAdd = () => {
     const completeButton = document.createElement("button")
     completeButton.innerText = "完了"
     completeButton.addEventListener("click", () => {
-        
+        // 押された完了ボタンの親にあるliタグから完了ボタンと削除ボタンを削除する
+        const moveTarget = completeButton.closest("li")
+        // 隣のある要素を取得し、削除
+        completeButton.nextElementSibling.remove()
+        // 同様にして完了ボタン自信を削除
+        completeButton.remove()
+
+        // 戻すボタンを生成し、divタブ配下に設定
+        const backButton = document.createElement("button")
+        backButton.innerText = "戻す"
+        moveTarget.firstElementChild.appendChild(backButton)
+
+        // 完了リストに移動
+        document.getElementById("complete-list").appendChild(moveTarget)
+
     })
 
     // buttonタグ生成

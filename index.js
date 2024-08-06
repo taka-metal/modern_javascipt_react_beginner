@@ -5,7 +5,14 @@ const onClickAdd = () => {
     const inputText = document.getElementById("add-text").value
     // 値を取得で来たら、テキストボックスの値は元の空に戻す
     document.getElementById("add-text").value = ""
-    
+
+    // 未完了リストに追加
+    createInCompleteTodo(inputText)
+
+}
+
+// 渡された引数をもとに未完了のTODOを作成する関数
+const createInCompleteTodo  = (todo) => {
     // li生成
     const li = document.createElement("li")
 
@@ -17,7 +24,7 @@ const onClickAdd = () => {
     const p = document.createElement("todo-item")
     p.className = "todo-item"
     // pタグで囲まれた中の文字列の設定
-    p.innerText = inputText
+    p.innerText = todo
 
     // buttonタグ生成
     const completeButton = document.createElement("button")
@@ -33,6 +40,13 @@ const onClickAdd = () => {
         // 戻すボタンを生成し、divタブ配下に設定
         const backButton = document.createElement("button")
         backButton.innerText = "戻す"
+        backButton.addEventListener("click", () => {
+            // Todoのテキストを取得して未完了リストに追加
+            const todoText = backButton.previousElementSibling.innerText
+            createInCompleteTodo(todoText)
+            // 押された戻すボタンの親のliタグを削除する
+            backButton.closest("li").remove()
+        })
         moveTarget.firstElementChild.appendChild(backButton)
 
         // 完了リストに移動
@@ -61,12 +75,6 @@ const onClickAdd = () => {
     // 該当箇所にDOMを差し込む
     document.getElementById("incomplete-list").appendChild(li) // imcomplete-listの子にliを追加する
 
-    console.log(li)
-}
-
-const onClickComplete = () => {
-    // liを削除
-    // liをcomplete-areaのulの子にする必要がある
 }
 
 /**
